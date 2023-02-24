@@ -21,9 +21,9 @@ app.get("/insta", (req, res) => {
   //console.log(req.query);
   const params = req.query;
   const backendUrl = `https://instagram.com/graphql/query/?query_id=${params.query_id}&variables=${params.variables}`;
-  //console.log(backendUrl);
+  console.log(backendUrl);
   // return the data without modification
-  axios.get(backendUrl).then((response) => res.send(response.data));
+  axios.get(backendUrl).then((response) => res.send(response.data)).catch(err => console.log("deu erro"));
 });
 
 app.get("/img", (req, res) => {
